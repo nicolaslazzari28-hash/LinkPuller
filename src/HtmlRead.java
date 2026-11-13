@@ -48,7 +48,7 @@ public class HtmlRead {
                         endIndex++;
                     }
 
-                    // Cut the link out of the line and fix &amp;
+                    // Cut link out of line and fix &amp;
                     String foundLink = htmlLine.substring(startIndex + 6, endIndex).replace("&amp;", "&");
 
                     // Only print real links that have the filter word
