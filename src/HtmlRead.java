@@ -37,10 +37,11 @@ public class HtmlRead {
             while ((htmlLine = reader.readLine()) != null) {
 
                 // Find the first link in the line
-                int startIndex = htmlLine.indexOf("href=\"");
+                int startIndex = htmlLine.indexOf("href=");
 
                 // keep going until there are no more links in the line
                 while (startIndex != -1) {
+                   // System.out.println(htmlLine);
 
                     // Find where the link ends
                     int endIndex = startIndex + 6;
@@ -50,7 +51,7 @@ public class HtmlRead {
 
                     // Cut link out of line and fix &amp;
                     String foundLink = htmlLine.substring(startIndex + 6, endIndex).replace("&amp;", "&");
-
+                   // System.out.println(foundLink);
                     // Only print real links that have the filter word
                     if ((foundLink.startsWith("href=") || foundLink.startsWith("https://")) && foundLink.contains(filterWord)) {
                         System.out.println(foundLink);
